@@ -3,27 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <title>Questions</title>
-<!--    Including custom css-->
-     <link rel="stylesheet" href="css/questions-style.css">
-    <!--Including Angular-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <!--Including Angular app-->
     <script src="./js/questions.js"></script>
-</head>
-<body ng-app="questionsApp" ng-controller="questionsController">
+    <!--    Including custom css-->
+    <link rel="stylesheet" href="css/questions-style.css">
+    <!--Adding jQuery-->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <!--Including Creative buttons-->
+    <link rel="stylesheet" href="CreativeButtons/css/component.css">
+    <!--Including Foundation-->
+    <!-- Compressed CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.0/foundation.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+    <!--Including Google Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,500,300'
+          rel='stylesheet' type='text/css'>
+    <script src="./js/sweetalert.min.js"></script>
 
-<div class="questions-div">
-    blah  blach
-    <div>
-        Question number: {{questionNumber}}
-        Question: {{question}}
-        Options: {{options}}
-        Hint: {{hint}}
-        Right Answer: {{rightAnswer}}
+    <!--Including Remodal-->
+    <link rel="stylesheet" href="./css/remodal.css">
+    <link rel="stylesheet" href="./css/remodal-default-theme.css">
+    <script src="./js/remodal.min.js"></script>
+</head>
+<body>
+
+<div class="question-div">
+
+    <div class="intro-text text-center">
+    <p>
+        Here is a question for you. What if you get it right?
+    </p>
+        <p>
+            Well, there's only one way to find out. (:
+        </p>
     </div>
-    <pre>
-        'The code:\n\n' var x = 5;<br> var y = 2;<br><br>set the character 'x' to equal 5 and the character 'y' to equal 2. When we say\n\n print (x-y)\n\n we are telling the program to tell us what the value of (x-y) is, which is 5 - 2 = 3!
-    </pre>
+    <div class="question-box">
+        <div class="question-top row">
+            <!--<div class="question-number small-3 columns"><div>2</div></div>-->
+            <div class="question-text"></div>
+        </div>
+        <div class="question-options-container">
+            <form id="options-form">
+                <label for="option-1">
+                    <input type="radio" name="options" value="A" id="option-1"/>
+                    <span id="option-1-text"></span>
+                </label>
+                <label for="option-2">
+                    <input type="radio" name="options" value="B" id="option-2"/>
+                    <span id="option-2-text"></span>
+                </label>
+                <label for="option-3">
+                    <input type="radio" name="options" value="C" id="option-3"/>
+                    <span id="option-3-text"></span>
+                </label>
+                <label for="option-4">
+                    <input type="radio" name="options" value="D" id="option-4"/>
+                    <span id="option-4-text"></span>
+                </label></form>
+        </div>
+        <div class="question-buttons">
+            <a class="submit-button button">Submit</a>
+            <a href="#hint" class="hint-button button">Hint</a>
+
+        </div>
+    </div>
+
+    <div id="print-form" class="hidden">Awesome! Type in your initials here and click Print!
+    <form action="./print.html">
+        <input type="textfield"name="initials" >
+        <input type="submit">
+    </form>
+
+    </div>
+
+    <script>
+        $('.submit-button').click(function (event) {
+            evaluateAnswer();
+        });
+//        $('.hint-button').click(function (event) {
+//
+//        });
+    </script>
+    <script>
+        $.get({
+            url: 'https://mysterious-caverns-36769.herokuapp.com/api/questions?random=true&limit=1',
+            success: function (data) {
+                $('.question-text').append(data.data[0].questionText);
+                $('#option-1-text').append(data.data[0].optionsText.A);
+                $('#option-2-text').append(data.data[0].optionsText.B);
+                $('#option-3-text').append(data.data[0].optionsText.C);
+                $('#option-4-text').append(data.data[0].optionsText.D);
+                $('#hint-text').append(data.data[0].hintText);
+                $('pre').each(function (i, block) {
+                    hljs.highlightBlock(block);
+                });
+                correctAnswer = data.data[0].correctAnswerText;
+                hint = data.data[0].hintText;
+            }
+        });
+    </script>
+    <div class="remodal" data-remodal-id="hint">
+        <button data-remodal-action="close" class="remodal-close"></button>
+        <h1>Here's your hint</h1>
+        <p id="hint-text">
+
+        </p>
+        <br>
+
+        <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+    </div>
+
 </div>
+<!-- Compressed JavaScript Foundation -->
+<script src="https://cdn.jsdelivr.net/foundation/6.2.0/foundation.min.js">
+
+</script>
 </body>
 </html>

@@ -7,6 +7,7 @@
   display: -webkit-flex;
   display: flex;
   flex-direction: $direction;
+  flex-wrap: wrap;
 }
 
 @mixin font-face($font-family, $font-weight, $font-size) {
@@ -48,6 +49,7 @@ body, html {
   border: 0;
   width: 100vw;
   height: 100vh;
+  font-family: "Fira Sans", sans-serif;
 
   //overflow: hidden;
 
@@ -62,14 +64,50 @@ body, html {
   flex-wrap: wrap;
 
 }
-
-.questions-div {
+.hidden
+{
+  display: none;
+}
+.question-div {
   @extend .full-screen-container;
+  justify-content: space-around;
   background-image: url("./../../media/questions-background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  font-family: "Fira Sans", sans-serif;
+
 
   height: 100%;
   width: 100%;
+  .intro-text{
+    font-family: "Montserrat", sans-serif;
+  }
+  .print-form{
+
+  }
+  .question-box{
+    @include flex-display(column);
+    justify-content: space-between;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.3) ;
+  transition: all 0.6s ease-in;
+    .question-top{
+
+      .question-text{
+        font-family: "Fira Sans", sans-serif;
+
+
+      }
+    }
+    .question-buttons{
+      @include flex-display(row);
+      justify-content: space-around;
+      .button{
+        //margin:10px;
+      }
+    }
+
+  }
 }
+

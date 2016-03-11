@@ -41,7 +41,8 @@ var getPrintStatus = function(){
         },
         dataType: 'application/json',
         success: function (data) {
-            console.info(data);
+            console.log(data.state);
+            console.log(data.estimatedPrintTime);
         }
     });
 }
