@@ -1,0 +1,43 @@
+{
+  "message": "HTTP 200 - OK",
+  "data": [
+    {
+      "_id": "56dbf8b0a6dfd12100431b23",
+      "explanationText": "The code:\n\n var x = 5;\n var y = 2;\n\nset the character 'x' to equal 5 and the character 'y' to equal 2. When we say\n\n print (x-y)\n\n we are telling the program to tell us what the value of (x-y) is, which is 5 - 2 = 3!",
+      "correctAnswerText": "A",
+      "questionText": "What is the output of the following code:\n\n var x = 5;\n var y = 2;\n print (x-y);\n",
+      "questionType": "MC",
+      "__v": 0,
+      "dateCreated": "2016-03-06T09:30:24.947Z",
+      "optionsText": {
+        "D": "0",
+        "C": "5",
+        "B": "2",
+        "A": "3"
+      },
+      "hintText": "Here's a similar example!\n\n var x = 10;\n print x;\n\n This code outputs 10."
+    },
+    {
+      "_id": "56dc9d6d7debebbc0ab22545",
+      "explanationText": "Bjarne Stroustrup invented C++ at Bell Labs as an extension to C.",
+      "correctAnswerText": "C",
+      "questionText": "See IDE..",
+      "questionType": "IDE",
+      "__v": 0,
+      "dateCreated": "2016-03-07T04:57:21.363Z",
+      "optionsText": null,
+      "hintText": "IDE hint"
+    },
+    {
+      "_id": "56dca1d63aed0e702272519b",
+      "explanationText": "Bjarne Stroustrup invented C++ at Bell Labs as an extension to C.",
+      "correctAnswerText": "C",
+      "questionText": "This.",
+      "questionType": "IDE",
+      "__v": 0,
+      "dateCreated": "2016-03-06T21:40:12.783Z",
+      "optionsText": null,
+      "hintText": "IDE hint"
+    }
+  ]
+}

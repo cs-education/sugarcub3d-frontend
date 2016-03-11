@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Questions</title>
+    <!--Including Angular-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <!--Including Angular app-->
+    <script src="./js/questions.js"></script>
+</head>
+<body ng-app="questionsApp" ng-controller="questionsController">
+<p>
+    Question number: {{questionNumber}}
+    Question: {{question}}
+    Options: {{options}}
+    Hint: {{hint}}
+    Right Answer: {{rightAnswer}}
+</p>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+body, html {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100vw;
+  height: 100vh; }
+
+.full-screen-container, .landing-page-div {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; }
+
+.landing-page-div {
+  background-image: url("./../../media/video-poster.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%; }
+  .landing-page-div .title {
+    z-index: 100;
+    margin: 0 !important;
+    font-family: "Montserrat", sans-serif;
+    font-weight: beige;
+    font-size: 70px;
+    color: beige; }
+  .landing-page-div .subtitle {
+    color: white;
+    z-index: 100;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: white;
+    font-size: 20px; }
+  .landing-page-div .start-button {
+    z-index: 100;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: white;
+    font-size: 20px; }
+
+#bg-video {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  padding: 0px;
+  object-position: 50% 50%; }
+
+.copyright-text {
+  position: fixed;
+  bottom: 2%;
+  width: 100%;
+  color: white;
+  z-index: 100;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: white;
+  font-size: 0.8em; }
+
+/*Styling the border*/
+#top, #bottom, #left, #right {
+  background-color: whitesmoke;
+  position: fixed;
+  z-index: 999; }
+
+#left, #right {
+  top: 0;
+  bottom: 0;
+  width: 0px; }
+
+#left {
+  left: 0; }
+
+#right {
+  right: 0; }
+
+#top, #bottom {
+  left: 0;
+  right: 0;
+  height: 20px; }
+
+#top {
+  top: 0; }
+
+#bottom {
+  bottom: 0; }
+
+/*# sourceMappingURL=landing-styles.css.map */

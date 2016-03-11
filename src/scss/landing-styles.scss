@@ -1,0 +1,150 @@
+/////////////////////////////////////////////////////////////////////////// MIXINS
+
+@mixin flex-display($direction) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: $direction;
+}
+
+@mixin font-face($font-family, $font-weight, $font-size) {
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-size: $font-size;
+}
+
+@mixin linx($link, $visit, $hover, $active) {
+  a {
+    color: $link;
+    &:visited {
+      color: $visit;
+    }
+    &:hover {
+      color: $hover;
+    }
+    &:active {
+      color: $active;
+    }
+  }
+}
+
+/////////////////////////////////////////////////////////////////////// VARIABLES
+$top-bar: color;
+// title properties
+$title-font: 'Montserrat', sans-serif;
+$title-font-color: beige;
+$title-font-size: 70px;
+// subtitle properties
+$subtitle-font: 'Fira Sans', sans-serif;
+$subtitle-font-color: white;
+
+///////////////////////////////////////////////////////////////////////// STYLES
+
+body, html {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100vw;
+  height: 100vh;
+
+  //overflow: hidden;
+
+}
+
+.full-screen-container {
+  margin: 0;
+  padding: 0;
+  @include flex-display(column);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+.landing-page-div {
+  @extend .full-screen-container;
+  background-image: url("./../../media/video-poster.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  height: 100%;
+  width: 100%;
+
+  .title {
+    z-index: 100;
+    margin: 0 !important;
+    @include font-face($title-font, $title-font-color, $title-font-size);
+    color: beige;
+    .logo {
+
+    }
+  }
+  .subtitle {
+    color: white;
+    z-index: 100;
+    @include font-face($subtitle-font, white, 20px)
+  }
+  .start-button {
+    z-index: 100;
+    //border-radius: 50px;
+    @include font-face($subtitle-font, white, 20px)
+
+  }
+}
+
+#bg-video {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  padding: 0px;
+  object-position: 50% 50%;
+}
+
+.copyright-text {
+  position: fixed;
+  bottom: 2%;
+  width: 100%;
+  color: white;
+  z-index: 100;
+  @include font-face($subtitle-font, white, 0.8em)
+}
+
+///////////////////////////////////////////////////////////////////
+/*Styling the border*/
+#top, #bottom, #left, #right {
+  background-color: whitesmoke;
+  position: fixed;
+  z-index: 999;
+}
+
+#left, #right {
+  top: 0;
+  bottom: 0;
+  width: 0px;
+}
+
+#left {
+  left: 0;
+}
+
+#right {
+  right: 0;
+}
+
+#top, #bottom {
+  left: 0;
+  right: 0;
+  height: 20px;
+}
+
+#top {
+  top: 0;
+}
+
+#bottom {
+  bottom: 0;
+}
