@@ -26,10 +26,9 @@ var getUrlParameter = function getUrlParameter(sParam) {
         }
     }
 };
-
-
-
-var getPrintStatus = function(){
+var fileURL = 'http://octopi.local/api/job'+ getUrlParameter('initials') + '.gcode';
+postPrintJob;
+var getPrintStatus = function () {
     $.ajax({
         url: 'http://octopi.local/api/job',
         type: 'get',
@@ -37,7 +36,7 @@ var getPrintStatus = function(){
         //    access_token: 'XXXXXXXXXXXXXXXXXXX'
         //},
         headers: {
-            'X-Api-Key':'54F92B0073324CD896365284D79DA7D5'
+            'X-Api-Key': '54F92B0073324CD896365284D79DA7D5'
         },
         dataType: 'application/json',
         success: function (data) {
@@ -47,6 +46,48 @@ var getPrintStatus = function(){
     });
 }
 
-setInterval(function() {
+var getPrintStatus = function () {
+    $.ajax({
+        url: 'http://octopi.local/api/job/',
+        type: 'get',
+        //data: {
+        //    access_token: 'XXXXXXXXXXXXXXXXXXX'
+        //},
+        headers: {
+            'X-Api-Key': '54F92B0073324CD896365284D79DA7D5'
+        },
+        dataType: 'application/json',
+        success: function (data) {
+            $('#printer-status').append(data.state);
+            $('#printer-est-time').append(data.estimatedPrintTime);
+            $('#printer-avg-time').append(data.job.averagePrintTime);
+
+        }
+    });
+}
+
+var postPrintJob = function () {
+    $.ajax({
+        url: fileURL,
+        type: 'post',
+        //data: {
+        //    access_token: 'XXXXXXXXXXXXXXXXXXX'
+        //},
+        headers: {
+            'X-Api-Key': '54F92B0073324CD896365284D79DA7D5'
+        },
+        data: {
+            'command': 'select',
+            'print': true
+        },
+        dataType: 'application/json',
+        success: function (data) {
+            alert("print job sent!")
+        }
+    });
+}
+
+
+setInterval(function () {
     getPrintStatus();
-}, 5000);
+}, 2000);
