@@ -8,7 +8,7 @@ var app = angular.module('questionsApp',[]);
 var numberOfquestions = 3;
 
 app.controller('questionsController', ['$scope', '$http', function ($scope, $http) {
-    $http.get('./js/data.json').success(function (data) {
+    $http.get('https://mysterious-caverns-36769.herokuapp.com/api/questions?random=true&limit=3').success(function (data) {
         var questions = data.data;
         var question1 = questions[0];
         $scope.questionNumber = 1;

@@ -1,0 +1,75 @@
+////////////////////////////////////////////////////////////////////////// MIXINS
+
+@mixin flex-display($direction) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: $direction;
+}
+
+@mixin font-face($font-family, $font-weight, $font-size) {
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-size: $font-size;
+}
+
+@mixin linx($link, $visit, $hover, $active) {
+  a {
+    color: $link;
+    &:visited {
+      color: $visit;
+    }
+    &:hover {
+      color: $hover;
+    }
+    &:active {
+      color: $active;
+    }
+  }
+}
+
+/////////////////////////////////////////////////////////////////////// VARIABLES
+$top-bar: color;
+// title properties
+$title-font: 'Montserrat', sans-serif;
+$title-font-color: beige;
+$title-font-size: 70px;
+// subtitle properties
+$subtitle-font: 'Fira Sans', sans-serif;
+$subtitle-font-color: white;
+
+///////////////////////////////////////////////////////////////////////// STYLES
+
+body, html {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100vw;
+  height: 100vh;
+
+  //overflow: hidden;
+
+}
+
+.full-screen-container {
+  margin: 0;
+  padding: 0;
+  @include flex-display(column);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+.questions-div {
+  @extend .full-screen-container;
+  background-image: url("./../../media/questions-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  height: 100%;
+  width: 100%;
+}

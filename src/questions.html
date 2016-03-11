@@ -3,19 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Questions</title>
+<!--    Including custom css-->
+     <link rel="stylesheet" href="css/questions-style.css">
     <!--Including Angular-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <!--Including Angular app-->
     <script src="./js/questions.js"></script>
 </head>
 <body ng-app="questionsApp" ng-controller="questionsController">
-<p>
-    Question number: {{questionNumber}}
-    Question: {{question}}
-    Options: {{options}}
-    Hint: {{hint}}
-    Right Answer: {{rightAnswer}}
-</p>
 
+<div class="questions-div">
+    blah  blach
+    <div>
+        Question number: {{questionNumber}}
+        Question: {{question}}
+        Options: {{options}}
+        Hint: {{hint}}
+        Right Answer: {{rightAnswer}}
+    </div>
+    <pre>
+        'The code:\n\n' var x = 5;<br> var y = 2;<br><br>set the character 'x' to equal 5 and the character 'y' to equal 2. When we say\n\n print (x-y)\n\n we are telling the program to tell us what the value of (x-y) is, which is 5 - 2 = 3!
+    </pre>
+</div>
 </body>
 </html>
