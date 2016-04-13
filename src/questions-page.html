@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Questions time</title>
+
+
+    <!--Adding jQuery-->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <!--Including Creative buttons-->
+    <link rel="stylesheet" href="CreativeButtons/css/component.css">
+    <!--Including Foundation-->
+    <!-- Compressed CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.0/foundation.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+    <!--Including Google Fonts-->
+    <!--Including Google Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat|Raleway:400,500|Bree+Serif|Crete+Round|Fira+Sans:400,500,300'
+          rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400italic' rel='stylesheet' type='text/css'>
+    <!--<link href='https://fonts.googleapis.com/css?family=Anton|Josefin+Sans' rel='stylesheet' type='text/css'>-->
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+    <!--Including Sweet Alert-->
+    <script src="./js/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="./css/sweetalert.css">
+
+    <!--Including Remodal-->
+    <link rel="stylesheet" href="./css/remodal.css">
+    <link rel="stylesheet" href="./css/remodal-default-theme.css">
+    <script src="./js/remodal.min.js"></script>
+    <!--    Including custom css-->
+    <link rel="stylesheet" href="css/questions-page.css">
+    <!--Including custom script files-->
+    <script src="./js/questions-page.js"></script>
+    <!--Including Creative buttons-->
+    <link rel="stylesheet" href="CreativeButtons/css/component.css">
+
+</head>
+<body>
+<div class="full-screen-container">
+    <div class="top-div text-center">
+        <h1 class="title">
+            Question Time.
+
+        </h1>
+        <h5 class="subtitle">
+            gotta earn that cookie
+        </h5>
+    </div>
+    <div class="question-div">
+        <div class="question-title text-center">
+            <p class="question-text" style="margin: 0; margin-top: 20px">
+                <!--Here's a similar example!<br><pre>Tupac = 'alive';<br>if (Tupac == 'alive') {<br>   print 'He is alive!'<br>}</pre><br>This code outputs 'He is alive!'-->
+
+            </p>
+        </div>
+        <div class="question-options ">
+            <div class="row text-center">
+                <button onclick="evaluateAnswer('A')" id="option-a" style="background-color: black"
+                        class="small-centered columns question-option btn btn-5 btn-5a bh-icon-smiley">
+                    <span id="option-1-text">True</span></button>
+            </div>
+            <div class="row text-center">
+                <button onclick="evaluateAnswer('B')" id="option-b" style="background-color: black"
+                        class=" small-centered columns question-option btn btn-5 btn-5a bh-icon-smiley">
+                    <span id="option-2-text">hey</span></button>
+            </div>
+            <div class="row text-center">
+                <button onclick="evaluateAnswer('C')" id="option-c" style="background-color: black"
+                        class="small-centered columns question-option btn btn-5 btn-5a bh-icon-smiley">
+                    <span id="option-3-text">hey</span></button>
+            </div>
+            <div class="row text-center">
+                <button onclick="evaluateAnswer('D')" id="option-d" style="background-color: black"
+                        class=" small-centered columns question-option btn btn-5 btn-5a bh-icon-smiley">
+                    <span id="option-4-text">hey</span></button>
+            </div>
+
+        </div>
+    </div>
+    <div class="bottom-div">
+        <button onclick="window.location = '#hint'" id="hint"
+                class="  bottom-options btn btn-4 btn-4c">
+            <span><a href="#hint" style="color: white">Hint!</a></span></button>
+        <span><span id="correctAnswers">0</span>/3 Correct</span>
+        <button  onclick="nextQuestion()" class="bottom-options btn btn-4 btn-4c icon-arrow-right">Next Question</button>
+    </div>
+</div>
+<div class="remodal" data-remodal-id="hint">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <h1>Here's your hint</h1>
+    <p id="hint-text">
+
+    </p>
+    <br>
+
+    <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+</div>
+
+<script>
+    $(".question-option").hover(function () {
+        $(this).css("background-color", "rgba(153, 204, 255,0.5)")
+    }, function () {
+        $(this).css("background-color", "black")
+    })
+    $("#hint").hover(function () {
+        $(this).css("background-color", "rgba(102, 102, 255,0.5)")
+    }, function () {
+        $(this).css("background-color", "rgba(153, 204, 255,0.0)")
+    })
+</script>
+</body>
+</html>

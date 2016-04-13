@@ -6,7 +6,7 @@ $('video').on('ended', function () {
 });
 
 
-if(screen.width/screen.height<1.7)
-{
-    $('video').remove();
-}
+//if(screen.width/screen.height<1.7)
+//{
+//    $('video').remove();
+//}

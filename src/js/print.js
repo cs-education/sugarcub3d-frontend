@@ -26,7 +26,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
         }
     }
 };
-var fileURL = 'http://octopi.local/api/job'+ getUrlParameter('initials') + '.gcode';
+var fileURL = 'http://octopi.local/api/job/'+ getUrlParameter('initials') + '.gcode';
 postPrintJob;
 var getPrintStatus = function () {
     $.ajax({
