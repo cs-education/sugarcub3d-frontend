@@ -16,7 +16,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
     <!--Including Google Fonts-->
     <!--Including Google Fonts-->
-    <link href='https://fonts.googleapis.com/css?family=Montserrat|Raleway:400,500|Bree+Serif|Crete+Round|Fira+Sans:400,500,300'
+    <link href='https://fonts.googleapis.com/css?family=Montserrat|Fira+Sans:400,500,300'
           rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400italic' rel='stylesheet' type='text/css'>
     <!--<link href='https://fonts.googleapis.com/css?family=Anton|Josefin+Sans' rel='stylesheet' type='text/css'>-->
@@ -36,7 +36,8 @@
     <script src="./js/questions-page.js"></script>
     <!--Including Creative buttons-->
     <link rel="stylesheet" href="CreativeButtons/css/component.css">
-
+    <!--Including animate css-->
+    <link rel="stylesheet" href="exPlugins/animate.min.css">
 </head>
 <body>
 <div class="full-screen-container">
@@ -52,30 +53,31 @@
     <div class="question-div">
         <div class="question-title text-center">
             <p class="question-text" style="margin: 0; margin-top: 20px">
-                <!--Here's a similar example!<br><pre>Tupac = 'alive';<br>if (Tupac == 'alive') {<br>   print 'He is alive!'<br>}</pre><br>This code outputs 'He is alive!'-->
 
+                <!--Here's a similar example!<br><pre>Tupac = 'alive';<br>if (Tupac == 'alive') {<br>   print 'He is alive!'<br>}</pre><br>This code outputs 'He is alive!'-->
+                <!--You have a slow internet connection.-->
             </p>
         </div>
         <div class="question-options ">
             <div class="row text-center">
                 <button onclick="evaluateAnswer('A')" id="option-a" style="background-color: black"
                         class="small-centered columns question-option btn btn-5 btn-5a bh-icon-smiley">
-                    <span id="option-1-text">True</span></button>
+                    <span id="option-1-text"></span></button>
             </div>
             <div class="row text-center">
                 <button onclick="evaluateAnswer('B')" id="option-b" style="background-color: black"
                         class=" small-centered columns question-option btn btn-5 btn-5a bh-icon-smiley">
-                    <span id="option-2-text">hey</span></button>
+                    <span id="option-2-text"></span></button>
             </div>
             <div class="row text-center">
                 <button onclick="evaluateAnswer('C')" id="option-c" style="background-color: black"
                         class="small-centered columns question-option btn btn-5 btn-5a bh-icon-smiley">
-                    <span id="option-3-text">hey</span></button>
+                    <span id="option-3-text"></span></button>
             </div>
             <div class="row text-center">
                 <button onclick="evaluateAnswer('D')" id="option-d" style="background-color: black"
                         class=" small-centered columns question-option btn btn-5 btn-5a bh-icon-smiley">
-                    <span id="option-4-text">hey</span></button>
+                    <span id="option-4-text"></span></button>
             </div>
 
         </div>
@@ -85,10 +87,10 @@
                 class="  bottom-options btn btn-4 btn-4c">
             <span><a href="#hint" style="color: white">Hint!</a></span></button>
         <span><span id="correctAnswers">0</span>/3 Correct</span>
-        <button  onclick="nextQuestion()" class="bottom-options btn btn-4 btn-4c icon-arrow-right">Next Question</button>
+        <button id="next-question" onclick="nextQuestion()" class="bottom-options btn btn-4 btn-4c icon-arrow-right"><span id="next-question-text">SKIP</span></button>
     </div>
 </div>
-<div class="remodal" data-remodal-id="hint">
+<div class="remodal" data-remodal-id="hint" style="font-family: 'Fira Sans', sans-serif;">
     <button data-remodal-action="close" class="remodal-close"></button>
     <h1>Here's your hint</h1>
     <p id="hint-text">

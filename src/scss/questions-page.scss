@@ -52,7 +52,7 @@ body, html {
   font-family: $title-font;
   color: $title-font-color;
   background-color: black;
-  background-image: url("./../../media/bg-dark.png");
+  background-image: url("../media/bg-dark.png");
   background-size: cover;
   //background-position: center;
   background-repeat: no-repeat;
@@ -112,4 +112,8 @@ body, html {
 .hidden {
   display: none;
 }
+
+//.greencolor{
+//  background-color: #1b7e5a;
+//}
 

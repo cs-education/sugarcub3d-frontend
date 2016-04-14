@@ -6,7 +6,7 @@
 var questions = {},
     currentQuestionNumber = 0,
     currentQuestionAnswer,
-    correctAnswers= 0,
+    correctAnswers = 0,
     currentHint;
 
 $.get({
@@ -44,8 +44,19 @@ function evaluateAnswer(optionLetter) {
         correctAnswers++;
         $('#correctAnswers').html(correctAnswers);
         disableOptions();
-        if(currentQuestionNumber==2){
-            if(correctAnswers<2)
+        $('#option-' + optionLetter.toLowerCase()).addClass("animated");
+        $('#option-' + optionLetter.toLowerCase()).addClass("infinite");
+        $('#option-' + optionLetter.toLowerCase()).addClass("pulse");
+        $('#option-' + optionLetter.toLowerCase()).css("background-color", "#1b7e5a");
+        $('#next-question-text').html("Next Question");
+
+        $('#next-question').addClass("animated");
+        //$('#next-question').addClass("infinite");
+        $('#next-question').addClass("bounce");
+
+
+        if (currentQuestionNumber == 2) {
+            if (correctAnswers < 2)
 
                 swal({
                         title: "Good job but hard luck!",
@@ -72,38 +83,45 @@ function evaluateAnswer(optionLetter) {
                     });
 
         }
-        else{
+        else {
             swal("Good job!", "You got it right!", "success");
 
         }
     }
-    else{
+    else {
         // wrong answer
+
         swal("Wrong!", "Try a hint?", "error");
+        $('#option-' + optionLetter.toLowerCase()).css("color", "indianred");
+
 
     }
 }
-function nextQuestion(){
-    if(currentQuestionNumber<2)
-    {
+function nextQuestion() {
+    if (currentQuestionNumber < 2) {
+        $('.question-option').removeClass("animated");
+        $('.question-option').css("color", "beige");
+
+        $('.question-option').css("background-color", "black");
+        $('#next-question-text').html("Skip");
+
+        $('#next-question-text').removeClass("animated");
         currentQuestionNumber++;
         attachQuestion(currentQuestionNumber);
     }
 }
 
-function getHint(){
-    swal("Here's a hint!", currentHint, "info");
-}
+
 function attachQuestion(i) {
     enableOptions();
-    $('.question-text').html(questions[i].questionText);
+    $('.question-text').html("Question #" + (i+1) + " "+ questions[i].questionText);
     $('#option-1-text').html(questions[i].optionsText.A);
     $('#option-2-text').html(questions[i].optionsText.B);
     $('#option-3-text').html(questions[i].optionsText.C);
     $('#option-4-text').html(questions[i].optionsText.D);
     $('#hint-text').html(questions[i].hintText);
     currentHint = questions[i].hintText;
-    currentQuestionAnswer=questions[i].correctAnswerText;
+    currentQuestionAnswer = questions[i].correctAnswerText;
     $('pre').each(function (x, block) {
         hljs.highlightBlock(block);
     });
